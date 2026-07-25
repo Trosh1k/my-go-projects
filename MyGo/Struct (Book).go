@@ -14,23 +14,6 @@ type Book struct {
 
 type BookCatalog []Book
 
-func main() {
-	catalog := BookCatalog{} // пустой каталог
-	catalog = catalog.AddBook(Book{"b001", "Война и мир", "Толстой", 1869, true})
-
-	book, found := catalog.FindBook("b002")
-	if found {
-		fmt.Printf("Найдена книга: %s, автор: %s\n", book.Title, book.Author)
-	} else {
-		fmt.Println("Книга не найдена")
-	}
-
-	catalog = catalog.BorrowBook("b002")
-
-	catalog.ListBooks()
-
-}
-
 func (c BookCatalog) AddBook(b Book) BookCatalog {
 	newCatalog := append(c, b)
 	return newCatalog
@@ -84,4 +67,20 @@ func (c BookCatalog) ListBooks() {
 		}
 		fmt.Printf("%s %s (%s, %d г.) — ID: %s\n", status, book.Title, book.Author, book.Year, book.ID)
 	}
+}
+
+func main() {
+	catalog := BookCatalog{} // пустой каталог
+	catalog = catalog.AddBook(Book{"b001", "Война и мир", "Толстой", 1869, true})
+
+	book, found := catalog.FindBook("b002")
+	if found {
+		fmt.Printf("Найдена книга: %s, автор: %s\n", book.Title, book.Author)
+	} else {
+		fmt.Println("Книга не найдена")
+	}
+
+	catalog = catalog.BorrowBook("b002")
+
+	catalog.ListBooks()
 }
