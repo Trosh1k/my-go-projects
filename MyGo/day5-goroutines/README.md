@@ -12,5 +12,5 @@
 
 # Запуск каждого файла
 ```bash
-go run day5-gorutine.go
+go run day5-Konveer.go
 go run day5-gorutine.go
